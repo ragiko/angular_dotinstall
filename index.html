@@ -7,8 +7,9 @@
 <body>
     <h2>Todo</h2>
     <div ng-controller="MainCtrl">
+        <p><input type="text" ng-model="query.name"></p>
         <ul>
-            <li ng-repeat="user in users|orderBy:'-score'|limitTo:3">
+            <li ng-repeat="user in users|filter:query">
             {{user.name}} {{user.score}}
             </li>
         </ul>
