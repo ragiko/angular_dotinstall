@@ -15,8 +15,13 @@
 <body>
     <h2>Todo</h2>
     <div ng-controller="MainCtrl">
-        <form name="myName" ng-submit="addUser()">
-            <p>Name: <input type="text" name="name" ng-model="user.name"></p>
+        <form novalidate name="myForm" ng-submit="addUser()">
+            <p>Name: 
+                <input type="text" name="name1" ng-model="user.name" required ng-minlength="5" ng-maxlength="8">
+                <span ng-show="myForm.name1.$error.required">Required!</span>
+                <span ng-show="myForm.name1.$error.minlength">Too short!</span>
+                <span ng-show="myForm.name1.$error.maxlength">Too long!</span>
+            </p>
             <p><input type="submit" value="add"></p>
         </form>
         <pre>{{user|json}}</pre>
