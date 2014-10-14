@@ -7,13 +7,9 @@
 <body>
     <h2>Todo</h2>
     <div ng-controller="MainCtrl">
-        <p>残り:{{users.length}} users.</p>
-        <p>{{25 * 500|number}}</p>
-        <p>{{25 * 500|currency:"￥"}}</p>
-        <p>{{today|date:'yyyy-MM-dd'}}</p>
         <ul>
-            <li ng-repeat="user in users">
-            {{user.name|uppercase}} {{user.score|number:4}}
+            <li ng-repeat="user in users|orderBy:'-score'|limitTo:3">
+            {{user.name}} {{user.score}}
             </li>
         </ul>
     </div>
