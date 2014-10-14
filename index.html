@@ -16,8 +16,9 @@
     <h2>Todo</h2>
     <div ng-controller="MainCtrl">
         <ul>
-            <li ng-repeat="user in users|filter:query" ng-class-even="'even'" ng-class-odd="'odd'">
-            {{$index+1}} {{$first}} {{$middle}} {{$last}} {{user.name}} {{user.score}}
+            <li ng-repeat="user in users" ng-controller="userItemCtrl">
+            {{user.name}} {{user.score}}
+            <button ng-click="increment()">+1</button>
             </li>
         </ul>
     </div>
